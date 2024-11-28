@@ -27,6 +27,7 @@ int main()
     
     printf("DFS starting from node 2:\n");
     DFS(graph, 2);
+  
     return 0;
 }
 
