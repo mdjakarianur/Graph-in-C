@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+
 struct AdjListNode {
     char dest;
     struct AdjListNode* next;
@@ -11,6 +12,7 @@ struct Graph {
     int V;
     struct AdjList* array;
 };
+
 struct AdjListNode* newAdjListNode(char dest) {
     struct AdjListNode* newNode = (struct AdjListNode*)malloc(sizeof(struct AdjListNode));
     newNode->dest = dest;
@@ -47,7 +49,7 @@ void printGraph(struct Graph* graph) {
         printf("\n");
     }
 }
-int main() {
+int main(){
     int V = 5;
     struct Graph* graph = createGraph(V);
     addEdge(graph, 'A', 'B');
