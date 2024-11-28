@@ -1,19 +1,16 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-struct AdjListNode
-{
+struct AdjListNode {
 	int dest;
 	struct AdjListNode* next;
 };
 
-struct AdjList
-{
+struct AdjList {
 	struct AdjListNode *head;
 };
 
-struct Graph
-{
+struct Graph {
 	int V;
 	struct AdjList* array;
 };
