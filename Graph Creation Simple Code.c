@@ -25,19 +25,16 @@ struct AdjListNode* newAdjListNode(int newdata){
 }
 
 struct Graph* createGraph(int V){
-    
+	 
 struct Graph* graph = (struct Graph*) malloc(sizeof(struct Graph));
-	
 graph->V = V;
-
 graph->array = (struct AdjList*) malloc(V * sizeof(struct AdjList));
-	
-	int i;
-	for (i = 0; i < V; i++){
-		graph->array[i].head = NULL;
-}
+    int i;
+    for (i = 0; i < V; i++){
+		graph->array[i].head = NULL; }
 	return graph;
 }
+
 
 void addEdge(struct Graph* graph, int src, int dest){
     
