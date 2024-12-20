@@ -11,26 +11,26 @@ struct AdjList {
 };
 
 struct Graph {
-	int V;
+	int vertex;
 	struct AdjList* array;
 };
 
-struct AdjListNode* newAdjListNode(int newdata){
+struct AdjListNode* newAdjListNode(int newData){
     
-	struct AdjListNode* newNode =
-	(struct AdjListNode*) malloc(sizeof(struct AdjListNode));
-	newNode->data = newdata;
+struct AdjListNode* newNode = (struct AdjListNode*) malloc(sizeof(struct AdjListNode));
+	newNode->data = newData;
 	newNode->next = NULL;
 	return newNode;
 }
 
-struct Graph* createGraph(int V){
+struct Graph* createGraph(int newVertex){
 	 
 struct Graph* graph = (struct Graph*) malloc(sizeof(struct Graph));
-graph->V = V;
-graph->array = (struct AdjList*) malloc(V * sizeof(struct AdjList));
-    int i;
-    for (i = 0; i < V; i++){
+graph->vertex = newVertex;
+
+graph->array = (struct AdjList*) malloc(newVertex * sizeof(struct AdjList));
+  int i;
+    for (i = 0; i < newVertex; i++){
 		graph->array[i].head = NULL; }
 	return graph;
 }
@@ -50,7 +50,7 @@ void addEdge(struct Graph* graph, int src, int dest){
 void printGraph(struct Graph* graph){
 	
 	int i;
-	for (i = 0; i < graph->V; i++){
+	for (i = 0; i < graph->vertex; i++){
 		struct AdjListNode* temp = graph->array[i].head;
 		printf("\n Adjacency list of vertex %d\n head ", i);
 		while (temp)
