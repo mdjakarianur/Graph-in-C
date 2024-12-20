@@ -30,13 +30,12 @@ struct Graph* createGraph(int V){
 		(struct Graph*) malloc(sizeof(struct Graph));
 	graph->V = V;
 
-	graph->array =
-	(struct AdjList*) malloc(V * sizeof(struct AdjList));
-
+	graph->array = (struct AdjList*) malloc(V * sizeof(struct AdjList));
 	int i;
 	for (i = 0; i < V; ++i)
 		graph->array[i].head = NULL;
 
+	
 	return graph;
 }
 
