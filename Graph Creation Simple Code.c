@@ -2,7 +2,7 @@
 #include <stdlib.h>
 
 struct AdjListNode {
-	int data;
+	int destination;
 	struct AdjListNode* next;
 };
 
@@ -15,10 +15,10 @@ struct Graph {
 	struct AdjList* array;
 };
 
-struct AdjListNode* newAdjListNode(int newData){
+struct AdjListNode* newAdjListNode(int newDestination){
     
 struct AdjListNode* newNode = (struct AdjListNode*) malloc(sizeof(struct AdjListNode));
-	newNode->data = newData;
+	newNode->destination = newDestination;
 	newNode->next = NULL;
 	return newNode;
 }
@@ -36,15 +36,15 @@ graph->array = (struct AdjList*) malloc(newVertex * sizeof(struct AdjList));
 }
 
 
-void addEdge(struct Graph* graph, int src, int dest){
+void addEdge(struct Graph* graph, int source, int destination){
     
-	struct AdjListNode* newNode = newAdjListNode(dest);
-	newNode->next = graph->array[src].head;
-	graph->array[src].head = newNode;
+	struct AdjListNode* newNode = newAdjListNode(destination);
+	newNode->next = graph->array[source].head;
+	graph->array[source].head = newNode;
 
-	newNode = newAdjListNode(src);
-	newNode->next = graph->array[dest].head;
-	graph->array[dest].head = newNode;
+	newNode = newAdjListNode(source);
+	newNode->next = graph->array[destination].head;
+	graph->array[destination].head = newNode;
 }
 
 void printGraph(struct Graph* graph){
@@ -55,7 +55,7 @@ void printGraph(struct Graph* graph){
 		printf("\n Adjacency list of vertex %d\n head ", i);
 		while (temp)
 		{
-			printf("-> %d", temp->data);
+			printf("-> %d", temp->destination);
 			temp = temp->next;
 		}
 		printf("\n");
@@ -63,8 +63,8 @@ void printGraph(struct Graph* graph){
 }
 int main(){
     
-	int V = 5;  
-	struct Graph* graph = createGraph(V);
+	int vertex = 5;  
+	struct Graph* graph = createGraph(vertex);
 	addEdge(graph, 0, 1);
 	addEdge(graph, 0, 4);
 	addEdge(graph, 1, 2);
