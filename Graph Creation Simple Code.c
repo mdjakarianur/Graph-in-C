@@ -15,8 +15,8 @@ struct Graph {
 	struct AdjList* array;
 };
 
-struct AdjListNode* newAdjListNode(int dest)
-{
+struct AdjListNode* newAdjListNode(int dest){
+    
 	struct AdjListNode* newNode =
 	(struct AdjListNode*) malloc(sizeof(struct AdjListNode));
 	newNode->dest = dest;
@@ -24,8 +24,8 @@ struct AdjListNode* newAdjListNode(int dest)
 	return newNode;
 }
 
-struct Graph* createGraph(int V)
-{
+struct Graph* createGraph(int V){
+    
 	struct Graph* graph =
 		(struct Graph*) malloc(sizeof(struct Graph));
 	graph->V = V;
@@ -40,8 +40,8 @@ struct Graph* createGraph(int V)
 	return graph;
 }
 
-void addEdge(struct Graph* graph, int src, int dest)
-{
+void addEdge(struct Graph* graph, int src, int dest){
+    
 	struct AdjListNode* newNode = newAdjListNode(dest);
 	newNode->next = graph->array[src].head;
 	graph->array[src].head = newNode;
@@ -66,8 +66,8 @@ void printGraph(struct Graph* graph)
 		printf("\n");
 	}
 }
-int main()
-{
+int main(){
+    
 	int V = 5;  
 	struct Graph* graph = createGraph(V);
 	addEdge(graph, 0, 1);
